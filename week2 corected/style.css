@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --font-main: 'Poppins', sans-serif;
+    --font-color-black: #000;
+    --font-color-purple: #854DFF;
+    --font-color-grey: #716F6F;
+    --font-color-error: #ff5959;
+
+    --color-bg-main: #F0F0F0;
+    --color-bg-app: #fff;
+    --color-borders: #DCDCDC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--font-color-black);
+    background: var(--color-bg-main);
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+ -moz-appearance: textfield;
+}
+
+.calc__container {
+    margin: auto;
+    width: 840px;
+    max-width: 100%;
+}
+
+/* MAIN ----------> */
+
+.calc__main_box {
+    background: var(--color-bg-app);
+    border-radius: 1.5rem 1.5rem 12.5rem 1.5rem;
+    padding: 3.5rem;
+}
+
+.calc__header_row,
+.calc__result_row,
+.calc__separator {
+    display: flex;
+}
+
+/* HEADER INPUTS ----------> */
+
+.calc__header_row div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.calc__header_row label {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--font-color-grey);
+    letter-spacing: 25%;
+    margin-bottom: .5rem;
+}
+
+.calc__header_row input {
+    border: 1px solid var(--color-borders);
+    caret-color: var(--font-color-purple);
+    width: 160px;
+    border-radius: 8px;
+    padding: .75rem 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.calc__header_row input:focus-visible {
+    outline: 1px solid var(--font-color-purple);
+}
+
+.calc__header-errorText {
+    font-size: .875rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--font-color-error);
+    margin-top: .5rem;
+    display: none;
+}
+
+/* SEPARATOR -----------> */
+
+.calc__separator {
+    position: relative;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calc__separator::before {
+    --height: 2px;
+    content: "";
+    position: absolute;
+    top: calc(50% - (var(--height)/2));
+    left: 0;
+    width: 100%;
+    height: var(--height);
+    background: var(--color-borders);
+    z-index: 0;
+}
+
+.calc__separator-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc__separator-img svg rect:hover {
+    fill: black;
+}
+
+.calc__separator-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+/* RESULTS ----------> */
+
+.calc__result {
+    font-style: italic;
+    font-size: 6.5rem;
+    font-weight: 800;
+}
+
+.calc__result_row {
+    line-height: 1.25;
+}
+
+.calc__result-number {
+    color: var(--font-color-purple);
+    margin-right: .5rem;
+}
+
+/* FOOTER ----------> */
+
+.attribution {
+    font-size: .75rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.attribution a {
+    color: var(--font-color-purple);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 840px) {
+    .calc__container {
+        width: 100%;
+    }
+    .calc__header_row {
+        margin-bottom: 2rem;
+    }
+    .calc__separator {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .calc__container {
+        max-width: 350px;
+    }
+    .calc__main_box {
+        padding: 3rem 1.5rem;
+        border-radius: 1.5rem 1.5rem 6.5rem 1.5rem;
+    }
+    .calc__header_row input {
+        width: 5rem;
+        height: 3.375rem;
+        padding: .25rem .75rem;
+        font-size: 1.25rem;
+    }
+    .calc__separator-img svg {
+        width: 64px;
+        height: 64px;
+    }
+    .calc__result {
+        font-size: 3.5rem;
+    }
+    .attribution {
+        font-size: .5rem;
+    }
+}
